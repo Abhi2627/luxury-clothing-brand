@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="relative bg-linear-to-br from-black to-gray-900 text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-black/50 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-linear-to-r from-white to-gray-200 bg-clip-text text-transparent">
             Luxury Redefined
@@ -30,8 +30,12 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {products.map((product) => (
               <div key={product.id} className="group bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div className="h-96 bg-linear-to-br from-gray-100 to-gray-200 group-hover:scale-105 transition-transform duration-500">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                <div className="h-96 bg-linear-to-br from-gray-100 to-gray-200 group-hover:scale-105 transition-transform duration-500 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                  {/* Placeholder image fallback */}
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    Luxury Product
+                  </div>
                 </div>
                 <div className="p-8">
                   <span className="text-sm bg-black text-white px-3 py-1 rounded-full">{product.category}</span>
